@@ -1,6 +1,6 @@
 # Makeme
 
-![Makeme Banner](assets/makeme-banner.png)
+![Makeme Banner](banner.png)
 
 **Makeme** is a tool designed to simplify the C/C++ development workflow — especially for newcomers. It handles all the heavy lifting so you can focus on your code, not your build system.
 
