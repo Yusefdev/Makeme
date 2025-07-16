@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رزومه طاها زارع</title>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@latest/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    * { font-family: 'Vazirmatn', sans-serif; box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f3f4f6;
+      color: #1f2937;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: row;
+    }
+    aside {
+      width: 280px;
+      background: #0f172a;
+      color: white;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      background: #f3f4f6;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.2rem; }
+    h2 {
+      color: #111827;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.5rem;
+    }
+    .section { margin-bottom: 2rem; }
+    .btn-download {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #10b981;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn-download:hover {
+      background: #059669;
+    }
+    a { color: #60a5fa; text-decoration: none; }
+    .projects a {
+      display: block;
+      margin: 0.5rem 0;
+      color: #1f2937;
+      background: #f9fafb;
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+      border-right: 4px solid #60a5fa;
+      transition: all 0.3s;
+    }
+    .projects a:hover { background: #e0f2fe; }
+    .photo {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .info-block { margin-bottom: 1.5rem; }
+    .info-block h3 {
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+    }
+    .info-block p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .skill-item .title { font-weight: bold; }
+    .skill-item .years { color: #10b981; font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      aside {
+        width: 100%;
+        min-height: auto;
+      }
+      main {
+        padding: 1rem;
+      }
+    }
+      .soft-skills {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .soft-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .circles {
+      display: flex;
+      gap: 5px;
+    }
+    .circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #d1d5db;
+    }
+    .circle.active {
+      background-color: #10b981;
+    }
+    .circle.half {
+      background: linear-gradient(to left, #10b981 50%, #d1d5db 50%);
+    }
+</style>
+<script>
+  document.querySelectorAll('.circles').forEach(c => {
+    const score = parseFloat(c.dataset.score);
+    for (let i = 1; i <= 5; i++) {
+      const circle = document.createElement('div');
+      circle.classList.add('circle');
+      if (i <= Math.floor(score)) circle.classList.add('active');
+      else if (i - score < 1 && i - score > 0) circle.classList.add('half');
+      c.appendChild(circle);
+    }
+  });
+</script>
+</head>
+<body>
+  <aside>
+    <img src="profile.jpg" alt="عکس طاها زارع" class="photo">
+    <div class="info-block">
+      <h3>اطلاعات تماس</h3>
+      <p>📍 گرگان، استان گلستان</p>
+      <p>📞 ۰۹۹۸۲۳۹۵۰۸۲</p>
+      <p>✉️ <a href="mailto:tahaazre.dev@gmail.com">tahaazre.dev@gmail.com</a></p>
+      <p>🌐 <a href="https://tahazare.ir" target="_blank">tahazare.ir</a></p>
+      <p>💻 <a href="https://github.com/tahaaZare" target="_blank">github.com/tahaaZare</a></p>
+    </div>
+    <div class="info-block">
+      <h3>اطلاعات فردی</h3>
+      <p>سن: ۲۱</p>
+      <p>وضعیت تأهل: مجرد</p>
+      <p>جنسیت: آقا</p>
+      <p>وضعیت نظام‌وظیفه: مشمول</p>
+    </div>
+    <div class="info-block">
+      <h3>اطلاعات شغلی</h3>
+      <p>وضعیت اشتغال: امکان همکاری دارم</p>
+      <p>شهرهای مورد نظر: گرگان، بجنورد، تهران</p>
+    </div>
+  </aside>
+
+  <main>
+    <h1>طاها زارع</h1>
+    <p style="color: #3b82f6; font-weight: bold;">Back-end Developer</p>
+
+    <div class="section">
+      <h2>درباره من</h2>
+      <p>
+        توسعه‌دهنده بک‌اند با مهارت در <strong>Django</strong>، <strong>C#</strong> و <strong>Laravel</strong>، مسلط به طراحی و پیاده‌سازی APIهای RESTful.
+        متخصص در ساخت مدل‌های هوش مصنوعی، علاقه‌مند به یادگیری مداوم در حوزه‌ی توسعه‌ی وب و نرم‌افزار.
+        تجربه در تعامل با سخت‌افزارهای شبکه‌ای و طراحی Load Balancer و تخصص در کار با سرورهای HP.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>تخصص‌ها</h2>
+      <div class="skill-item">
+        <span class="title">Flutter / Dart</span>
+        <span class="years">۲ سال</span>
+      </div>
+      <p style="margin-right:1rem; margin-top:-0.5rem; color:#4b5563; font-size:0.9rem">توسعه اپلیکیشن‌های اندرویدی</p>
+      <div class="skill-item">
+        <span class="title">C#</span>
+        <span class="years">۴ سال</span>
+      </div>
+      <div class="skill-item">
+        <span class="title">C</span>
+        <span class="years">۱ سال تمام‌وقت</span>
+      </div>
+      <div class="skill-item">
+        <span class="title">Django / Python</span>
+        <span class="years">۳ سال</span>
+      </div>
+      <div class="skill-item">
+        <span class="title">Laravel</span>
+        <span class="years">آشنایی کاربردی</span>
+      </div>
+      <div class="skill-item">
+        <span class="title">SQL Server، MySQL، Redis، Cassandra</span>
+        <span class="years">-</span>
+      </div>
+      <div class="skill-item">
+        <span class="title">API Development، Cisco Devices، Load Balancer Design، HP Servers</span>
+        <span class="years">-</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>پروژه‌های من</h2>
+      <div class="projects">
+        <a href="https://github.com/TahaaZare/Rcade-Education" target="_blank">🎓 Rcade-Education – پروژه آموزشی با Blade و PHP</a>
+        <a href="https://bionozhan.com/" target="_blank">🌐 سایت bionozhan – طراحی شده با Laravel</a>
+        <a href="https://zeoneacademy.com/" target="_blank">🏫 Zeone Academy – چندزبانه با Laravel</a>
+        <a href="https://sti-park.com/" target="_blank">🧪 نوژَن – سایت دو زبانه تجاری‌سازی نوآوری</a>
+        <a href="https://hamehchibazar.com/fa" target="_blank">🛒 همه‌چی بازار – فروشگاه آنلاین با امکانات پیشرفته</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>دانلود رزومه PDF</h2>
+      <button class="btn-download" onclick="window.print()">📄 ذخیره به صورت PDF</button>
+    </div>
+
+    <div class="section">
+      <h2>مهارت‌های نرم</h2>
+      <div class="soft-skills">
+        <div class="soft-item"><span>خلاقیت و ایده‌پردازی</span><div class="circles" data-score="5"></div></div>
+        <div class="soft-item"><span>کار تیمی و همکاری</span><div class="circles" data-score="4"></div></div>
+        <div class="soft-item"><span>مهارت حل مسئله</span><div class="circles" data-score="3.5"></div></div>
+        <div class="soft-item"><span>مدیریت زمان</span><div class="circles" data-score="5"></div></div>
+        <div class="soft-item"><span>قدرت یادگیری سریع</span><div class="circles" data-score="5"></div></div>
+        <div class="soft-item"><span>روابط عمومی و تعامل</span><div class="circles" data-score="5"></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>سطح زبان انگلیسی</h2>
+      <div class="soft-skills">
+        <div class="soft-item"><span>Reading</span><div class="circles" data-score="4"></div></div>
+        <div class="soft-item"><span>Writing</span><div class="circles" data-score="3"></div></div>
+        <div class="soft-item"><span>Speaking</span><div class="circles" data-score="3"></div></div>
+        <div class="soft-item"><span>Listening</span><div class="circles" data-score="4"></div></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

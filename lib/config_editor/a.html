@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌈 Dev Portfolio</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --json-bg: #ffffff;
+      --json-text: #000000;
+      --accent: #00bcd4;
+    }
+
+    body.light {
+      --bg: #fdfdfd;
+      --text: #111111;
+      --json-bg: #f7f7f7;
+      --json-text: #000000;
+      --accent: #007acc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .glow-wrap {
+      position: relative;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .glow-wrap::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      z-index: -1;
+      border-radius: 14px;
+      background: linear-gradient(90deg,
+        #4285f4,
+        #ea4335,
+        #fbbc05,
+        #34a853,
+        #4285f4);
+      background-size: 400% 400%;
+      filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .glow-active::before {
+      animation: moveGlow 2s linear forwards;
+      opacity: 1;
+    }
+
+    @keyframes moveGlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .json-box, .profile {
+      background-color: var(--json-bg);
+      color: var(--json-text);
+      border-radius: 10px;
+      padding: 1rem;
+      direction: ltr;
+      font-family: monospace;
+    }
+
+    .json-box {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1rem;
+      border: 3px solid var(--accent);
+    }
+
+    .profile-rtl {
+      direction: rtl;
+    }
+
+    @media (min-width: 600px) {
+      .profile {
+        flex-direction: row;
+        text-align: left;
+        gap: 2rem;
+      }
+    }
+
+    .lang-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lang-button {
+      font-size: 1.2rem;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      background: #222;
+      border: 2px solid white;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 10px;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      line-height: 1.8;
+      list-style-type: none;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-overlay" id="langOverlay">
+    <button class="lang-button" onclick="setLang('en')">🇬🇧 English</button>
+    <button class="lang-button" onclick="setLang('fa')">🇮🇷 فارسی</button>
+  </div>
+
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+    <h1 id="title">🛠️ Build Configuration</h1>
+    <ul id="fieldList"></ul>
+
+    <div class="glow-wrap">
+      <div class="json-box">
+{
+  "fileSettings": {
+    "src/main.c": {
+      "compileOrder": 1,
+      "compiler": "gcc",
+      "architecture": "x64",
+      "compileType": ".exe (debug)",
+      "outputPath": "build/",
+      "customOutputName": "main_debug",
+      "languageStandard": "c11",
+      "packages": ["zlib", "sdl2"]
+    },
+    "src/lib.c": {
+      "compileOrder": 2,
+      "compiler": "gcc",
+      "architecture": "x64",
+      "compileType": ".dll",
+      "outputPath": "build/",
+      "customOutputName": "libutils",
+      "languageStandard": "c99",
+      "packages": ["zlib"]
+    }
+  }
+}
+      </div>
+    </div>
+
+    <div class="glow-wrap">
+      <div class="profile" id="profileBox">
+        <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Profile Picture" />
+        <div id="profileContent" class="profile-rtl">
+          <h2 id="yourName">👨‍💻 Your Name</h2>
+          <p id="aboutText">
+            I'm a passionate software engineer with expertise in OS-level coding, app development, and web engineering.
+            Skilled in C, Dart, Flutter, Python, C#, and modern full-stack technologies.
+            Let’s create something performant, elegant, and user-focused — together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "🛠️ Build Configuration",
+        fields: [
+          "📄 File compile order",
+          "🧰 Compiler used: gcc, clang",
+          "💻 Target architecture: x86 or x64",
+          "🏗️ Output type: .exe (debug), .dll",
+          "📁 Compiled output file path",
+          "✏️ Custom output file name",
+          "📚 Language standard: c11, c++17",
+          "📦 Required MSYS2 packages"
+        ],
+        name: "👨‍💻 Your Name",
+        about: `I'm a passionate software engineer with expertise in OS-level coding, app development, and web engineering.
+Skilled in C, Dart, Flutter, Python, C#, and modern full-stack technologies.
+Let’s create something performant, elegant, and user-focused — together.`
+      },
+      fa: {
+        title: "🛠️ پیکربندی ساخت برنامه",
+        fields: [
+          "📄 ترتیب کامپایل فایل‌ها",
+          "🧰 کامپایلر مورد استفاده: gcc، clang",
+          "💻 معماری هدف: x86 یا x64",
+          "🏗️ نوع خروجی: .exe (debug)، .dll",
+          "📁 مسیر فایل خروجی",
+          "✏️ نام دلخواه فایل خروجی",
+          "📚 استاندارد زبان: c11، c++17",
+          "📦 بسته‌های مورد نیاز MSYS2"
+        ],
+        name: "👨‍💻 نام شما",
+        about: `من یک توسعه‌دهنده نرم‌افزار با تمرکز بر برنامه‌نویسی سطح سیستم و طراحی رابط کاربری هستم.
+در C، Dart، Flutter، Python، C# و توسعه وب مهارت دارم.
+بیایید چیزی سریع، شفاف و زیبا خلق کنیم — با هم.`
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("langOverlay").style.display = "none";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+
+      const t = translations[lang];
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("fieldList").innerHTML = t.fields.map(f => `<li>${f}</li>`).join("");
+      document.getElementById("yourName").textContent = t.name;
+      document.getElementById("aboutText").textContent = t.about;
+      document.getElementById("aboutText").dir = "rtl";
+
+      const profileContent = document.getElementById("profileContent");
+      if (lang === "en") {
+        profileContent.classList.add("profile-rtl");
+      } else {
+        profileContent.classList.remove("profile-rtl");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.classList.add('glow-active');
+          setTimeout(() => {
+            el.classList.remove('glow-active');
+          }, 2000);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.glow-wrap').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
